@@ -37,14 +37,6 @@ struct Polygon
     enum PointOrdering Ordering;
 };
 
-void reset_polygon(struct Polygon* polygon)
-{
-    polygon->Area          = 0.0;
-    polygon->Ordering      = NONE;
-    polygon->VerticesCount = 0;
-    polygon->Points        = NULL;
-}
-
 void compute_polygon_area(struct Polygon* polygon)
 {
     float temp = 0;
