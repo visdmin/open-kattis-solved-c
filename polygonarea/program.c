@@ -1,6 +1,6 @@
 /*
     Problem:  https://open.kattis.com/problems/polygonarea
-    CPU time: (pending)
+    CPU time: 0.00
 */
 
 #include <stdio.h>
@@ -33,13 +33,13 @@ struct Polygon
 {
     int VerticesCount;
     struct Point* Points;
-    float Area;
+    double Area;
     enum PointOrdering Ordering;
 };
 
 void compute_polygon_area(struct Polygon* polygon)
 {
-    float temp = 0;
+    double temp = 0;
 
     struct Point* point_a;
     struct Point* point_b;
@@ -49,8 +49,8 @@ void compute_polygon_area(struct Polygon* polygon)
         point_a = (polygon->Points + idx);
         point_b = (polygon->Points + ((idx + 1 < polygon->VerticesCount) ? idx + 1 : 0));
 
-        temp += (float)((float)point_a->x * (float)point_b->y);
-        temp -= (float)((float)point_a->y * (float)point_b->x);
+        temp += (double)(point_a->x * point_b->y);
+        temp -= (double)(point_a->y * point_b->x);
     }
 
     temp = temp / 2.0;
